@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { login, register } from '../config/authService';
+import { DEMO_MODE } from '../config/demoMode';
 
 const { height } = Dimensions.get('window');
 
@@ -170,6 +171,15 @@ export default function LoginScreen({ navigation }: any) {
               </TouchableOpacity>
             </View>
 
+            {DEMO_MODE && (
+              <View style={styles.demoBox}>
+                <Text style={styles.demoTitle}>DEMO OFFLINE</Text>
+                <Text style={styles.demoText}>Usuario: demo@safezone.mx · demo1234</Text>
+                <Text style={styles.demoText}>Admin: admin@safezone.mx · admin1234</Text>
+                <Text style={styles.demoText}>Código admin: SZ-DEMO-2026</Text>
+              </View>
+            )}
+
             {/* Campos de registro */}
             {tab === 'register' && (
               <>
@@ -307,6 +317,14 @@ const styles = StyleSheet.create({
   tabBtn:       { flex: 1, alignItems: 'center', justifyContent: 'center', zIndex: 1 },
   tabLabel:     { fontSize: 13, fontWeight: '600', color: COLORS.textSecondary, letterSpacing: 0.3 },
   tabLabelActive: { color: COLORS.accentLight },
+
+  demoBox: {
+    backgroundColor: 'rgba(46,204,113,0.08)',
+    borderWidth: 1, borderColor: 'rgba(46,204,113,0.3)',
+    borderRadius: 10, padding: 10, marginBottom: 16,
+  },
+  demoTitle: { fontSize: 10, fontWeight: '800', color: COLORS.accentLight, letterSpacing: 0.8, marginBottom: 4 },
+  demoText: { fontSize: 11, color: COLORS.textSecondary, lineHeight: 16 },
 
   fieldWrap:    { marginBottom: 16 },
   fieldLabel:   { fontSize: 12, fontWeight: '500', color: COLORS.textSecondary, marginBottom: 8, letterSpacing: 0.4, textTransform: 'uppercase' },

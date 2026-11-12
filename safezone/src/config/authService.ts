@@ -3,6 +3,8 @@
  * Autenticación MySQL/JWT. Guarda el token en AsyncStorage y lo envía en cada petición.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DEMO_MODE } from './demoMode';
+import { demoApiFetch } from './demoService';
 
 declare const process: { env: Record<string, string | undefined> };
 
@@ -39,6 +41,10 @@ async function clearSession() {
 
 // ─── Fetch autenticado (úsalo para reportes y para el panel admin) ────────────
 export async function apiFetch(path: string, options: RequestInit = {}) {
+  if (DEMO_MODE) {
+    return demoApiFetch(path, options);
+  }
+
   const token = await getToken();
   const res = await fetch(`${API_URL}${path}`, {
     ...options,

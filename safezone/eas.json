@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 18.11.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "demo": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "image": "sdk-52"
+      },
+      "env": {
+        "EXPO_PUBLIC_DEMO_MODE": "true"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

@@ -11,6 +11,7 @@ safezone/                 App Expo / React Native
   src/config/             authService.ts, riskEngine.ts
   src/screens/            Login, Map, Report, Admin, RiskDashboard, Tree
   assets/                 Íconos y splash
+  demo/                   APK demo offline y credenciales
 safezone-api/             API Express + MySQL
   index.js                API principal (reportes, índice, salud)
   authRoutes.js           Registro, login, JWT, panel admin
@@ -84,7 +85,18 @@ npm start
 
 Define `EXPO_PUBLIC_API_URL` con la IP local de la PC (por ejemplo `http://192.168.1.56:3001`). El valor por defecto está en `src/config/authService.ts`.
 
-Scripts: `npm start`, `npm run android`, `npm run ios`, `npm run web`, `npm run typecheck`.
+Scripts: `npm start`, `npm run android`, `npm run ios`, `npm run web`, `npm run typecheck`, `npm run demo:build`.
+
+## Demo offline (APK)
+
+La carpeta `safezone/demo/` contiene `SafeZone-Demo.apk`, compilado con `EXPO_PUBLIC_DEMO_MODE=true` y el perfil `demo` de `eas.json`. Funciona sin API ni MySQL: usa datos simulados locales para login, reportes, mapa, índice de riesgo y panel de administración.
+
+| Rol | Correo | Contraseña | Código admin |
+| --- | --- | --- | --- |
+| Ciudadano | `demo@safezone.mx` | `demo1234` | — |
+| Administrador | `admin@safezone.mx` | `admin1234` | `SZ-DEMO-2026` |
+
+Descarga e instrucciones: [`safezone/demo/README.md`](safezone/demo/README.md). También está publicado en [GitHub Releases](https://github.com/l23212044/Safezone-Repo/releases/tag/v1.0.0-demo).
 
 ## Capturas reales
 

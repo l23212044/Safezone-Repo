@@ -158,7 +158,8 @@ export default function AdminScreen({ navigation }: any) {
           </View>
         </View>
         <View style={s.hBtns}>
-          <TouchableOpacity style={s.hBtn} onPress={() => navigation.navigate('TreeAnalyzer')}><Text style={s.hBtnText}>🌳</Text></TouchableOpacity>
+          <TouchableOpacity style={s.hBtn} onPress={() => navigation.navigate('Tree')}><Text style={s.hBtnText}>🌳</Text></TouchableOpacity>
+          <TouchableOpacity style={s.hBtn} onPress={() => navigation.navigate('RiskDashboard')}><Text style={s.hBtnText}>⚖</Text></TouchableOpacity>
           <TouchableOpacity style={s.hBtn} onPress={() => navigation.replace('Map')}><Text style={s.hBtnText}>Mapa</Text></TouchableOpacity>
           <TouchableOpacity style={[s.hBtn, { borderColor: 'rgba(231,76,60,0.4)', backgroundColor: 'rgba(231,76,60,0.08)' }]} onPress={handleLogout}>
             <Text style={[s.hBtnText, { color: COLORS.danger, fontWeight: '600' }]}>Salir</Text>
